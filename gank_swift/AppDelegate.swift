@@ -23,19 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tab = UITabBarController()
         
         let new = NewViewController()
-        new.tabBarItem.title = "最新"
-        new.tabBarItem.image = UIImage(named: "new_normal")
-        new.tabBarItem.selectedImage = UIImage(named: "new_selected")
+        setViewController(viewController: new, title: "最新", image: "new_normal", selectedImage: "new_selected")
 
         let category = CategoryViewController()
-        category.tabBarItem.title = "分类"
-        category.tabBarItem.image = UIImage(named: "category_normal")
-        category.tabBarItem.selectedImage = UIImage(named: "category_selected")
+        setViewController(viewController: category, title: "分类", image: "category_normal", selectedImage: "category_selected")
 
         let mine = MIneViewController()
-        mine.tabBarItem.title = "分类"
-        mine.tabBarItem.image = UIImage(named: "mine_normal")
-        mine.tabBarItem.selectedImage = UIImage(named: "mine_selected")
+        setViewController(viewController: mine, title: "我的", image: "mine_normal", selectedImage: "mine_selected")
 
         tab.viewControllers = [new,category,mine];
         let nav = UINavigationController(rootViewController: tab)
@@ -47,9 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setViewController(viewController: UIViewController, title: String, image: String, selectedImage:String) {
         let bar = viewController.tabBarItem
         bar?.title = title
+        let attr:Dictionary = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10), NSAttributedString.Key.foregroundColor: UIColor.black]
+        bar?.setTitleTextAttributes(attr, for: UIControl.State.selected)
         
-        let normal = UIImage(named: image)
-        let selected = UIImage(named: selectedImage)
+        let normal = UIImage(named: image)?.withRenderingMode(.alwaysOriginal)
+        let selected = UIImage(named: selectedImage)?.withRenderingMode(.alwaysOriginal)
         bar?.image = normal
         bar?.selectedImage = selected
     }
