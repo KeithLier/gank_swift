@@ -9,11 +9,15 @@
 import UIKit
 
 class CategoryViewController: UIViewController {
+    
+    @IBOutlet weak var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.imageView.contentMode = .scaleAspectFit
+        self.imageView.image = UIImage(named: "2.jpg")
     }
 
 
