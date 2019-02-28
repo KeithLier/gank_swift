@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nav = UINavigationController(rootViewController: tab)
         self.window?.rootViewController = nav
 
+        UINavigationBar.appearance().tintColor = UIColor.black
         return true
     }
     

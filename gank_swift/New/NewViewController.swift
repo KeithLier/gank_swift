@@ -20,10 +20,10 @@ class NewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "每日干货"
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "NewTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "NewTableViewCell")
+        self.navigationItem.title = "每日干货"
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "NewTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "NewTableViewCell")
         loadNewData()
         // Do any additional setup after loading the view.
     }
@@ -75,9 +75,9 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
             let nib = Bundle.main.loadNibNamed("NewTableViewCell", owner: nil, options: nil)
             cell = nib?[0] as! NewTableViewCell
         }
-        let title = self.category[indexPath.section]
-        let news: Array<AnyObject> = self.results[title] as! Array
-        let dict = news[indexPath.row]
+        let key = self.category[indexPath.section]
+        let news: Array<AnyObject> = self.results[key] as! Array
+        let dict:Dictionary = news[indexPath.row] as! [String: Any]
         if let title = dict["desc"] as? String {
             cell.titleLabel.text = title
         }
@@ -87,18 +87,34 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
         if let date = dict["publishedAt"] as? String {
             cell.dateLabel.text = date
         }
-//        if let images:Array<String> = dict["images"] as! Array {
-//            if let urlString = images.first {
-//                DispatchQueue.global().async {
-//                    let url: NSURL = NSURL(string: urlString)!
-//                    let data = NSData(contentsOf: url as URL)!
-//                    DispatchQueue.main.async {
-//                        cell.imgView.image = UIImage(data: data as Data, scale: 1.0)
-//                    }
-//                }
-//            }
-//        }
+        if dict.keys.contains("images") {
+            if let images:Array<String> = dict["images"] as? [String] {
+                if let urlString = images.first {
+                    DispatchQueue.global().async {
+                        let url: NSURL = NSURL(string: urlString)!
+                        let data = NSData(contentsOf: url as URL)!
+                        DispatchQueue.main.async {
+                            cell.imgView.image = UIImage(data: data as Data, scale: 1.0)
+                        }
+                    }
+                }
+            }
+        }
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let key = self.category[indexPath.section]
+        let news: Array<AnyObject> = self.results[key] as! Array
+        let dict:Dictionary = news[indexPath.row] as! [String: Any]
+        if let url = dict["url"] as? String {
+            let webVC: WebViewController = WebViewController()
+            webVC.url = url
+            self.navigationController?.pushViewController(webVC, animated: true)
+        }
+        
     }
 }

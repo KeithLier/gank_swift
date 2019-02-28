@@ -1,18 +1,28 @@
 //
-//  CategoryViewController.swift
+//  WebViewController.swift
 //  gank_swift
 //
-//  Created by keith on 2019/2/21.
+//  Created by keith on 2019/2/28.
 //  Copyright © 2019 keith. All rights reserved.
 //
 
 import UIKit
+import WebKit
 
-class CategoryViewController: UIViewController {
+class WebViewController: UIViewController {
+
+    public var url:String = ""
+    @IBOutlet weak var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if !self.url.isEmpty {
+            let u = URL(string: self.url)
+            let request: URLRequest = URLRequest(url:u!)
+            self.webView.load(request)
+        }
+        // Do any additional setup after loading the view.
     }
 
 

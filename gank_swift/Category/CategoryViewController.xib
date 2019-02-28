@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryViewController" customModule="gank_swift" customModuleProvider="target">
             <connections>
-                <outlet property="imageView" destination="wtm-cB-z6O" id="3ll-Dz-uUS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,18 +19,7 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wtm-cB-z6O">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                </imageView>
-            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="wtm-cB-z6O" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="F27-4F-n4f"/>
-                <constraint firstItem="wtm-cB-z6O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JaK-9g-yrS"/>
-                <constraint firstItem="wtm-cB-z6O" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="deR-VF-oyP"/>
-                <constraint firstItem="wtm-cB-z6O" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mHD-6y-23F"/>
-            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="130.40000000000001" y="152.47376311844079"/>
         </view>
