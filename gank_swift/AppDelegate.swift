@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let new = NewViewController()
         setViewController(viewController: new, title: "最新", image: "new_normal", selectedImage: "new_selected")
-
         let category = CategoryViewController()
         setViewController(viewController: category, title: "分类", image: "category_normal", selectedImage: "category_selected")
 
@@ -36,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = nav
 
         UINavigationBar.appearance().tintColor = UIColor.black
+        UINavigationBar.appearance().isTranslucent = false
         return true
     }
     

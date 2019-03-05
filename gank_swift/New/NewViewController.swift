@@ -13,19 +13,21 @@ class NewViewController: UIViewController {
     
     var category:Array<String> = []
     var results:Dictionary<String, AnyObject> = [:]
-    var news = Array<Any>()
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "每日干货"
+        self.tabBarController?.navigationItem.title = "每日干货"
+        
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.chooseDate))
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "NewTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "NewTableViewCell")
+        
         loadNewData()
-        // Do any additional setup after loading the view.
     }
 
     func loadNewData() {
@@ -41,7 +43,11 @@ class NewViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-
+    
+    @objc func chooseDate() {
+        let date: DatePickerViewController = DatePickerViewController()
+        self.navigationController?.present(date, animated: true, completion: nil)
+    }
 }
 
 extension NewViewController: UITableViewDataSource, UITableViewDelegate {

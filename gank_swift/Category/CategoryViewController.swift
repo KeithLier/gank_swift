@@ -10,9 +10,14 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
+    @IBOutlet weak var topScrollView: TopScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let titles = ["社会","科技","娱乐","体育育","体育体育1","体育体育2","体育体育2","体育体育3"]
+        topScrollView.delegate = self
+        topScrollView.titles = titles
     }
 
 
@@ -26,4 +31,10 @@ class CategoryViewController: UIViewController {
     }
     */
 
+}
+
+extension CategoryViewController: TopScrollViewDelegate {
+    func topScrollView(_ scrollView: TopScrollView, selectedIndex index: Int) {
+        
+    }
 }

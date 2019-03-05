@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryViewController" customModule="gank_swift" customModuleProvider="target">
             <connections>
+                <outlet property="topScrollView" destination="6nL-BK-WFs" id="qAA-2X-9jG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +20,21 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nL-BK-WFs" customClass="TopScrollView" customModule="gank_swift" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="aVL-53-aPq"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6nL-BK-WFs" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="DuR-io-Qli"/>
+                <constraint firstItem="6nL-BK-WFs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UnM-IH-Pc8"/>
+                <constraint firstItem="6nL-BK-WFs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ihz-5m-0Hg"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="130.40000000000001" y="152.47376311844079"/>
         </view>

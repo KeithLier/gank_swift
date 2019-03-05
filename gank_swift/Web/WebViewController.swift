@@ -16,7 +16,7 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "web"
         if !self.url.isEmpty {
             let u = URL(string: self.url)
             let request: URLRequest = URLRequest(url:u!)
