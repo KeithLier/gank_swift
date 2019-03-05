@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol TopScrollViewDelegate: class {
-    func topScrollView(_ scrollView: TopScrollView, selectedIndex index: Int)
+protocol TopMenuScrollViewDelegate: class {
+    func topMenuScrollView(_ scrollView: TopMenuScrollView, selectedIndex index: Int)
 }
 
-class TopScrollView: UIView {
-    weak var delegate: TopScrollViewDelegate?
+class TopMenuScrollView: UIView {
+    weak var delegate: TopMenuScrollViewDelegate?
     
     var titles: [String]? {
         didSet {
@@ -100,7 +100,7 @@ class TopScrollView: UIView {
     }
 }
 
-extension TopScrollView {
+extension TopMenuScrollView {
     private func setupUI() {
         self.addSubview(self.scrollView)
     }
@@ -145,7 +145,7 @@ extension TopScrollView {
         UIView.animate(withDuration: 0.25) {
             self.moveSlider(moveX: button.frame.minX, changeWidth: button.frame.width)
         }
-        delegate?.topScrollView(self, selectedIndex: index)
+        delegate?.topMenuScrollView(self, selectedIndex: index)
     }
     
     private func moveSlider(moveX: CGFloat, changeWidth: CGFloat) {

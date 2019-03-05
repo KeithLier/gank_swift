@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		53152084222CA838003EE954 /* TopScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53152083222CA838003EE954 /* TopScrollView.swift */; };
+		53152084222CA838003EE954 /* TopMenuScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53152083222CA838003EE954 /* TopMenuScrollView.swift */; };
 		53C6CC2C221E2156005A54DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6CC2B221E2156005A54DA /* AppDelegate.swift */; };
 		53C6CC2E221E2156005A54DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6CC2D221E2156005A54DA /* ViewController.swift */; };
 		53C6CC33221E2158005A54DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C6CC32221E2158005A54DA /* Assets.xcassets */; };
@@ -47,7 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		53152083222CA838003EE954 /* TopScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScrollView.swift; sourceTree = "<group>"; };
+		53152083222CA838003EE954 /* TopMenuScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenuScrollView.swift; sourceTree = "<group>"; };
 		53C6CC28221E2156005A54DA /* gank_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gank_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C6CC2B221E2156005A54DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53C6CC2D221E2156005A54DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 			children = (
 				53C6CC5E221E2982005A54DA /* CategoryViewController.swift */,
 				53C6CC5F221E2982005A54DA /* CategoryViewController.xib */,
-				53152083222CA838003EE954 /* TopScrollView.swift */,
+				53152083222CA838003EE954 /* TopMenuScrollView.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -412,7 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53152084222CA838003EE954 /* TopScrollView.swift in Sources */,
+				53152084222CA838003EE954 /* TopMenuScrollView.swift in Sources */,
 				53EB883822236C7E0088777B /* NewTableViewCell.swift in Sources */,
 				53C6CC60221E2982005A54DA /* CategoryViewController.swift in Sources */,
 				53C6CC2E221E2156005A54DA /* ViewController.swift in Sources */,

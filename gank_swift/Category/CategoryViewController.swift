@@ -10,7 +10,7 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
-    @IBOutlet weak var topScrollView: TopScrollView!
+    @IBOutlet weak var topScrollView: TopMenuScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +33,8 @@ class CategoryViewController: UIViewController {
 
 }
 
-extension CategoryViewController: TopScrollViewDelegate {
-    func topScrollView(_ scrollView: TopScrollView, selectedIndex index: Int) {
+extension CategoryViewController: TopMenuScrollViewDelegate {
+    func topMenuScrollView(_ scrollView: TopMenuScrollView, selectedIndex index: Int) {
         
     }
 }
