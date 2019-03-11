@@ -1,84 +1,55 @@
 //
-//  NewViewController.swift
+//  CategoryPageController.swift
 //  gank_swift
 //
-//  Created by keith on 2019/2/21.
+//  Created by keith on 2019/3/6.
 //  Copyright © 2019 keith. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 
-class NewViewController: UIViewController {
+class CategoryPageController: UIViewController {
     
-    var category:Array<String> = []
-    var results:Dictionary<String, AnyObject> = [:]
+    public var category: String = ""
+    var results:Array<Any> = []
     
     @IBOutlet weak var tableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "NewTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "NewTableViewCell")
         
-        loadNewData()
+        loadData()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super .viewWillAppear(animated)
-
-        self.tabBarController?.navigationItem.title = "每日干货"
-        
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.chooseDate))
-
-    }
-    
-    func loadNewData() {
-        let url = "https://gank.io/api/today"
-        
+    func loadData () {
+        var url = "http://gank.io/api/data/";
+        url = url + self.category + "/20/1";
+        url = url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         Alamofire.request(url).responseJSON { response in
             if let JSON = response.result.value {
                 if let dict = JSON as? [String: AnyObject] {
-                    self.category = dict["category"] as! Array
-                    self.results = dict["results"] as! Dictionary<String, AnyObject>
+                    self.results = dict["results"] as! Array
                 }
             }
             self.tableView.reloadData()
         }
     }
-    
-    @objc func chooseDate() {
-        let date: DatePickerViewController = DatePickerViewController()
-        self.navigationController?.present(date, animated: true, completion: nil)
-    }
 }
 
-extension NewViewController: UITableViewDataSource, UITableViewDelegate {
+extension CategoryPageController: UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
-    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100;
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return self.category.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let title = self.category[section]
-        return title
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let title = self.category[section]
-        let news: Array<AnyObject> = self.results[title] as! Array
-        return news.count;
+        return self.results.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,9 +58,7 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
             let nib = Bundle.main.loadNibNamed("NewTableViewCell", owner: nil, options: nil)
             cell = nib?[0] as! NewTableViewCell
         }
-        let key = self.category[indexPath.section]
-        let news: Array<AnyObject> = self.results[key] as! Array
-        let dict:Dictionary = news[indexPath.row] as! [String: Any]
+        let dict:Dictionary = self.results[indexPath.row] as! [String: Any]
         if let title = dict["desc"] as? String {
             cell.titleLabel.text = title
         }
@@ -112,16 +81,13 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
                 }
             }
         }
-
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let key = self.category[indexPath.section]
-        let news: Array<AnyObject> = self.results[key] as! Array
-        let dict:Dictionary = news[indexPath.row] as! [String: Any]
+        let dict:Dictionary = self.results[indexPath.row] as! [String: Any]
         if let url = dict["url"] as? String {
             let webVC: WebViewController = WebViewController()
             webVC.url = url

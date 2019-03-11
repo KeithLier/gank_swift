@@ -154,3 +154,21 @@ extension TopMenuScrollView {
         sliderView.frame.size.width = changeWidth - 2 * padding
     }
 }
+
+extension TopMenuScrollView {
+    func setTitleWithProgress(_ progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        let sourceButton = buttonArray[sourceIndex]
+        let targetButton = buttonArray[targetIndex]
+        let moveTotalX = targetButton.frame.origin.x - sourceButton.frame.origin.x
+        let moveX = moveTotalX * progress
+        let moveWidth = (targetButton.frame.width - sourceButton.frame.width) * progress
+        
+        self.moveSlider(moveX: sourceButton.frame.origin.x + moveX, changeWidth: sourceButton.frame.width + moveWidth)
+
+        if progress > 0.5{
+            self.selectedButton(index: Int(targetIndex))
+        }else{
+            self.selectedButton(index: Int(sourceIndex))
+        }
+    }
+}

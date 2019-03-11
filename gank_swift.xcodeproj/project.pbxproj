@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		53152084222CA838003EE954 /* TopMenuScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53152083222CA838003EE954 /* TopMenuScrollView.swift */; };
+		5345777F222F46910055F317 /* CategoryPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345777D222F46910055F317 /* CategoryPageController.swift */; };
+		53457780222F46910055F317 /* CategoryPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5345777E222F46910055F317 /* CategoryPageController.xib */; };
 		53C6CC2C221E2156005A54DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6CC2B221E2156005A54DA /* AppDelegate.swift */; };
 		53C6CC2E221E2156005A54DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6CC2D221E2156005A54DA /* ViewController.swift */; };
 		53C6CC33221E2158005A54DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C6CC32221E2158005A54DA /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		53152083222CA838003EE954 /* TopMenuScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenuScrollView.swift; sourceTree = "<group>"; };
+		5345777D222F46910055F317 /* CategoryPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPageController.swift; sourceTree = "<group>"; };
+		5345777E222F46910055F317 /* CategoryPageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryPageController.xib; sourceTree = "<group>"; };
 		53C6CC28221E2156005A54DA /* gank_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gank_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C6CC2B221E2156005A54DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53C6CC2D221E2156005A54DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 			children = (
 				53C6CC5E221E2982005A54DA /* CategoryViewController.swift */,
 				53C6CC5F221E2982005A54DA /* CategoryViewController.xib */,
+				5345777D222F46910055F317 /* CategoryPageController.swift */,
+				5345777E222F46910055F317 /* CategoryPageController.xib */,
 				53152083222CA838003EE954 /* TopMenuScrollView.swift */,
 			);
 			path = Category;
@@ -336,6 +342,7 @@
 				53C6CC36221E2158005A54DA /* LaunchScreen.storyboard in Resources */,
 				53F07A8722275DF300ED848D /* WebViewController.xib in Resources */,
 				53EB883922236C7E0088777B /* NewTableViewCell.xib in Resources */,
+				53457780222F46910055F317 /* CategoryPageController.xib in Resources */,
 				53C6CC33221E2158005A54DA /* Assets.xcassets in Resources */,
 				53C6CC61221E2982005A54DA /* CategoryViewController.xib in Resources */,
 				53C6CC65221E2999005A54DA /* NewViewController.xib in Resources */,
@@ -418,6 +425,7 @@
 				53C6CC2E221E2156005A54DA /* ViewController.swift in Sources */,
 				53C6CC2C221E2156005A54DA /* AppDelegate.swift in Sources */,
 				53F07A8B2228B6DD00ED848D /* DatePickerViewController.swift in Sources */,
+				5345777F222F46910055F317 /* CategoryPageController.swift in Sources */,
 				53F07A8622275DF300ED848D /* WebViewController.swift in Sources */,
 				53C6CC64221E2999005A54DA /* NewViewController.swift in Sources */,
 				53C6CC68221E29CE005A54DA /* MIneViewController.swift in Sources */,

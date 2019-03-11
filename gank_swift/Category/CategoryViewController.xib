@@ -12,7 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryViewController" customModule="gank_swift" customModuleProvider="target">
             <connections>
-                <outlet property="topScrollView" destination="6nL-BK-WFs" id="qAA-2X-9jG"/>
+                <outlet property="scrollView" destination="3Wx-wR-QKG" id="cVj-dq-gMI"/>
+                <outlet property="topMenuScrollView" destination="6nL-BK-WFs" id="2KK-50-o2d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,12 +29,22 @@
                         <constraint firstAttribute="height" constant="44" id="aVL-53-aPq"/>
                     </constraints>
                 </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Wx-wR-QKG">
+                    <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="kvS-V7-MpN"/>
+                    </connections>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="3Wx-wR-QKG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5TO-kq-PAS"/>
                 <constraint firstItem="6nL-BK-WFs" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="DuR-io-Qli"/>
                 <constraint firstItem="6nL-BK-WFs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UnM-IH-Pc8"/>
+                <constraint firstItem="3Wx-wR-QKG" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="dhr-N0-aaP"/>
                 <constraint firstItem="6nL-BK-WFs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ihz-5m-0Hg"/>
+                <constraint firstItem="3Wx-wR-QKG" firstAttribute="top" secondItem="6nL-BK-WFs" secondAttribute="bottom" id="mMn-FO-Ao8"/>
+                <constraint firstItem="3Wx-wR-QKG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ply-9x-pyZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="130.40000000000001" y="152.47376311844079"/>
