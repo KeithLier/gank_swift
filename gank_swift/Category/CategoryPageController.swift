@@ -8,29 +8,51 @@
 
 import UIKit
 import Alamofire
+import MJRefresh
 
 class CategoryPageController: UIViewController {
     
     public var category: String = ""
     var results:Array<Any> = []
-    
+    var pageNumber: Int = 1
     @IBOutlet weak var tableView: UITableView!
-
+    
+    let header = MJRefreshNormalHeader()
+    let footer = MJRefreshAutoNormalFooter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "NewTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "NewTableViewCell")
-        
+        header.setRefreshingTarget(self, refreshingAction: #selector(refreshData))
+        footer.setRefreshingTarget(self, refreshingAction: #selector(loadMoreData))
+        self.tableView.mj_header = header
+        self.tableView.mj_footer = footer
+        header.beginRefreshing()
         loadData()
     }
 
+    @objc func refreshData() {
+        pageNumber = 1
+//        self.tableView.mj_header.beginRefreshing()
+        loadData()
+    }
+    
+    @objc func loadMoreData() {
+        pageNumber += 1
+        self.tableView.mj_footer.beginRefreshing()
+        loadData()
+    }
+    
     func loadData () {
         var url = "http://gank.io/api/data/";
-        url = url + self.category + "/20/1";
+        url = url + self.category + "/20/" + String(pageNumber);
         url = url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         Alamofire.request(url).responseJSON { response in
+            self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_footer.endRefreshing()
             if let JSON = response.result.value {
                 if let dict = JSON as? [String: AnyObject] {
                     self.results = dict["results"] as! Array
