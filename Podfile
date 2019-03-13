@@ -6,5 +6,6 @@ use_frameworks!
 target 'gank_swift' do
     pod 'Alamofire', '~> 4.0'
     pod 'SwiftyJSON', '~> 3.0'
+    pod 'SDWebImage', '~> 4.0'
     pod 'MJRefresh'
 end

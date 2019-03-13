@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SDWebImage
 
 class NewViewController: UIViewController {
     
@@ -23,7 +24,8 @@ class NewViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "NewTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "NewTableViewCell")
-        
+        self.tableView.register(UINib(nibName: "ImageTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "ImageTableViewCell")
+
         loadNewData()
     }
 
@@ -63,6 +65,10 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let title = self.category[indexPath.section]
+        if title == "福利" {
+            return tableView.frame.width
+        }
         return 100;
     }
     
@@ -82,14 +88,34 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let key = self.category[indexPath.section]
+        let news: Array<AnyObject> = self.results[key] as! Array
+        let dict:Dictionary = news[indexPath.row] as! [String: Any]
+        if key == "福利" {
+            var cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
+            if(cell == nil) {
+                let nib = Bundle.main.loadNibNamed("ImageTableViewCell", owner: nil, options: nil)
+                cell = nib?[0] as! ImageTableViewCell
+            }
+            if let date = dict["publishedAt"] as? String {
+                cell.dateLabel.text = date
+            }
+            if let urlString = dict["url"] as? String {
+                DispatchQueue.global().async {
+                    let url: NSURL = NSURL(string: urlString)!
+                    let data = NSData(contentsOf: url as URL)!
+                    DispatchQueue.main.async {
+                        cell.imgView.image = UIImage(data: data as Data, scale: 1.0)
+                    }
+                }
+            }
+            return cell
+        }
         var cell = tableView.dequeueReusableCell(withIdentifier: "NewTableViewCell") as! NewTableViewCell
         if(cell == nil) {
             let nib = Bundle.main.loadNibNamed("NewTableViewCell", owner: nil, options: nil)
             cell = nib?[0] as! NewTableViewCell
         }
-        let key = self.category[indexPath.section]
-        let news: Array<AnyObject> = self.results[key] as! Array
-        let dict:Dictionary = news[indexPath.row] as! [String: Any]
         if let title = dict["desc"] as? String {
             cell.titleLabel.text = title
         }
@@ -102,13 +128,7 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
         if dict.keys.contains("images") {
             if let images:Array<String> = dict["images"] as? [String] {
                 if let urlString = images.first {
-                    DispatchQueue.global().async {
-                        let url: NSURL = NSURL(string: urlString)!
-                        let data = NSData(contentsOf: url as URL)!
-                        DispatchQueue.main.async {
-                            cell.imgView.image = UIImage(data: data as Data, scale: 1.0)
-                        }
-                    }
+                    cell.imgView.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "no_image_default"))
                 }
             }
         }
@@ -120,6 +140,10 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let key = self.category[indexPath.section]
+        if key == "福利" {
+            return
+        }
+
         let news: Array<AnyObject> = self.results[key] as! Array
         let dict:Dictionary = news[indexPath.row] as! [String: Any]
         if let url = dict["url"] as? String {

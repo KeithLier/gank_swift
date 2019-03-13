@@ -10,6 +10,8 @@
 		53152084222CA838003EE954 /* TopMenuScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53152083222CA838003EE954 /* TopMenuScrollView.swift */; };
 		5345777F222F46910055F317 /* CategoryPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345777D222F46910055F317 /* CategoryPageController.swift */; };
 		53457780222F46910055F317 /* CategoryPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5345777E222F46910055F317 /* CategoryPageController.xib */; };
+		534D40D0223881B700ED9552 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534D40CE223881B700ED9552 /* ImageTableViewCell.swift */; };
+		534D40D1223881B700ED9552 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 534D40CF223881B700ED9552 /* ImageTableViewCell.xib */; };
 		53C6CC2C221E2156005A54DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6CC2B221E2156005A54DA /* AppDelegate.swift */; };
 		53C6CC2E221E2156005A54DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6CC2D221E2156005A54DA /* ViewController.swift */; };
 		53C6CC33221E2158005A54DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C6CC32221E2158005A54DA /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		53152083222CA838003EE954 /* TopMenuScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenuScrollView.swift; sourceTree = "<group>"; };
 		5345777D222F46910055F317 /* CategoryPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPageController.swift; sourceTree = "<group>"; };
 		5345777E222F46910055F317 /* CategoryPageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryPageController.xib; sourceTree = "<group>"; };
+		534D40CE223881B700ED9552 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		534D40CF223881B700ED9552 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
 		53C6CC28221E2156005A54DA /* gank_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gank_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C6CC2B221E2156005A54DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53C6CC2D221E2156005A54DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +111,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		534D40CD2238818200ED9552 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53EB883622236C7E0088777B /* NewTableViewCell.swift */,
+				53EB883722236C7E0088777B /* NewTableViewCell.xib */,
+				534D40CE223881B700ED9552 /* ImageTableViewCell.swift */,
+				534D40CF223881B700ED9552 /* ImageTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		53C6CC1F221E2156005A54DA = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +149,7 @@
 			children = (
 				53C6CC2B221E2156005A54DA /* AppDelegate.swift */,
 				53C6CC2D221E2156005A54DA /* ViewController.swift */,
+				534D40CD2238818200ED9552 /* View */,
 				53F07A882228B6C000ED848D /* Date */,
 				53C6CC59221E28FB005A54DA /* New */,
 				53C6CC5A221E2903005A54DA /* Category */,
@@ -169,8 +185,6 @@
 			children = (
 				53C6CC62221E2999005A54DA /* NewViewController.swift */,
 				53C6CC63221E2999005A54DA /* NewViewController.xib */,
-				53EB883622236C7E0088777B /* NewTableViewCell.swift */,
-				53EB883722236C7E0088777B /* NewTableViewCell.xib */,
 			);
 			path = New;
 			sourceTree = "<group>";
@@ -342,6 +356,7 @@
 				53C6CC36221E2158005A54DA /* LaunchScreen.storyboard in Resources */,
 				53F07A8722275DF300ED848D /* WebViewController.xib in Resources */,
 				53EB883922236C7E0088777B /* NewTableViewCell.xib in Resources */,
+				534D40D1223881B700ED9552 /* ImageTableViewCell.xib in Resources */,
 				53457780222F46910055F317 /* CategoryPageController.xib in Resources */,
 				53C6CC33221E2158005A54DA /* Assets.xcassets in Resources */,
 				53C6CC61221E2982005A54DA /* CategoryViewController.xib in Resources */,
@@ -377,6 +392,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-gank_swift/Pods-gank_swift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -385,6 +401,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +441,7 @@
 				53152084222CA838003EE954 /* TopMenuScrollView.swift in Sources */,
 				53EB883822236C7E0088777B /* NewTableViewCell.swift in Sources */,
 				53C6CC60221E2982005A54DA /* CategoryViewController.swift in Sources */,
+				534D40D0223881B700ED9552 /* ImageTableViewCell.swift in Sources */,
 				53C6CC2E221E2156005A54DA /* ViewController.swift in Sources */,
 				53C6CC2C221E2156005A54DA /* AppDelegate.swift in Sources */,
 				53F07A8B2228B6DD00ED848D /* DatePickerViewController.swift in Sources */,

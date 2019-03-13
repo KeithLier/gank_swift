@@ -102,7 +102,8 @@ extension CategoryViewController: UIScrollViewDelegate {
         if progress > 0.998 {
             progress = 1
         }
-
+        
+        addControllerView(index: targetIndex)
         topMenuScrollView.setTitleWithProgress(progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
     

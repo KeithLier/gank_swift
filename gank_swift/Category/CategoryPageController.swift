@@ -13,7 +13,7 @@ import MJRefresh
 class CategoryPageController: UIViewController {
     
     public var category: String = ""
-    var results:Array<Any> = []
+    var results:NSMutableArray = []
     var pageNumber: Int = 1
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,23 +26,21 @@ class CategoryPageController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "NewTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "NewTableViewCell")
+        self.tableView.register(UINib(nibName: "ImageTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "ImageTableViewCell")
         header.setRefreshingTarget(self, refreshingAction: #selector(refreshData))
         footer.setRefreshingTarget(self, refreshingAction: #selector(loadMoreData))
         self.tableView.mj_header = header
         self.tableView.mj_footer = footer
         header.beginRefreshing()
-        loadData()
     }
 
     @objc func refreshData() {
         pageNumber = 1
-//        self.tableView.mj_header.beginRefreshing()
         loadData()
     }
     
     @objc func loadMoreData() {
         pageNumber += 1
-        self.tableView.mj_footer.beginRefreshing()
         loadData()
     }
     
@@ -55,7 +53,17 @@ class CategoryPageController: UIViewController {
             self.tableView.mj_footer.endRefreshing()
             if let JSON = response.result.value {
                 if let dict = JSON as? [String: AnyObject] {
-                    self.results = dict["results"] as! Array
+                    if (dict["error"]?.boolValue)! {
+                        return
+                    }
+                    if self.pageNumber == 1 {
+                        self.results.removeAllObjects()
+                    }
+                    let results:Array<Any> = dict["results"] as! Array
+                    if results.count == 0 {
+                        self.tableView.mj_footer.endRefreshingWithNoMoreData()
+                    }
+                    self.results.addObjects(from: results)
                 }
             }
             self.tableView.reloadData()
@@ -67,6 +75,10 @@ extension CategoryPageController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if self.category == "福利" {
+            return tableView.frame.width
+        }
+
         return 100;
     }
     
@@ -75,12 +87,26 @@ extension CategoryPageController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dict:Dictionary = self.results[indexPath.row] as! [String: Any]
+        if self.category == "福利" {
+            var cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
+            if(cell == nil) {
+                let nib = Bundle.main.loadNibNamed("ImageTableViewCell", owner: nil, options: nil)
+                cell = nib?[0] as! ImageTableViewCell
+            }
+            if let date = dict["publishedAt"] as? String {
+                cell.dateLabel.text = date
+            }
+            if let urlString = dict["url"] as? String {
+                cell.imgView.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "no_image_default"))
+            }
+            return cell
+        }
         var cell = tableView.dequeueReusableCell(withIdentifier: "NewTableViewCell") as! NewTableViewCell
         if(cell == nil) {
             let nib = Bundle.main.loadNibNamed("NewTableViewCell", owner: nil, options: nil)
             cell = nib?[0] as! NewTableViewCell
         }
-        let dict:Dictionary = self.results[indexPath.row] as! [String: Any]
         if let title = dict["desc"] as? String {
             cell.titleLabel.text = title
         }
@@ -93,13 +119,7 @@ extension CategoryPageController: UITableViewDataSource, UITableViewDelegate {
         if dict.keys.contains("images") {
             if let images:Array<String> = dict["images"] as? [String] {
                 if let urlString = images.first {
-                    DispatchQueue.global().async {
-                        let url: NSURL = NSURL(string: urlString)!
-                        let data = NSData(contentsOf: url as URL)!
-                        DispatchQueue.main.async {
-                            cell.imgView.image = UIImage(data: data as Data, scale: 1.0)
-                        }
-                    }
+                    cell.imgView.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "no_image_default"))
                 }
             }
         }
@@ -108,7 +128,10 @@ extension CategoryPageController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        if self.category == "福利" {
+            return
+        }
+
         let dict:Dictionary = self.results[indexPath.row] as! [String: Any]
         if let url = dict["url"] as? String {
             let webVC: WebViewController = WebViewController()
