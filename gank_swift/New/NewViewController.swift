@@ -92,48 +92,42 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
         let news: Array<AnyObject> = self.results[key] as! Array
         let dict:Dictionary = news[indexPath.row] as! [String: Any]
         if key == "福利" {
-            var cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
+            var cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as? ImageTableViewCell
             if(cell == nil) {
                 let nib = Bundle.main.loadNibNamed("ImageTableViewCell", owner: nil, options: nil)
-                cell = nib?[0] as! ImageTableViewCell
+                cell = nib?[0] as? ImageTableViewCell
             }
             if let date = dict["publishedAt"] as? String {
-                cell.dateLabel.text = date
+                cell!.dateLabel.text = date
             }
             if let urlString = dict["url"] as? String {
-                DispatchQueue.global().async {
-                    let url: NSURL = NSURL(string: urlString)!
-                    let data = NSData(contentsOf: url as URL)!
-                    DispatchQueue.main.async {
-                        cell.imgView.image = UIImage(data: data as Data, scale: 1.0)
-                    }
-                }
+                cell!.imgView.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "no_image_default"))
             }
-            return cell
+            return cell!
         }
-        var cell = tableView.dequeueReusableCell(withIdentifier: "NewTableViewCell") as! NewTableViewCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "NewTableViewCell") as? NewTableViewCell
         if(cell == nil) {
             let nib = Bundle.main.loadNibNamed("NewTableViewCell", owner: nil, options: nil)
-            cell = nib?[0] as! NewTableViewCell
+            cell = nib?[0] as? NewTableViewCell
         }
         if let title = dict["desc"] as? String {
-            cell.titleLabel.text = title
+            cell!.titleLabel.text = title
         }
         if let who = dict["who"] as? String {
-            cell.autherLabel.text = who
+            cell!.autherLabel.text = who
         }
         if let date = dict["publishedAt"] as? String {
-            cell.dateLabel.text = date
+            cell!.dateLabel.text = date
         }
         if dict.keys.contains("images") {
             if let images:Array<String> = dict["images"] as? [String] {
                 if let urlString = images.first {
-                    cell.imgView.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "no_image_default"))
+                    cell!.imgView.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "no_image_default"))
                 }
             }
         }
 
-        return cell
+        return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
