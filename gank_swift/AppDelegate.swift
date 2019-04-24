@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let category = CategoryViewController()
         setViewController(viewController: category, title: "分类", image: "category_normal", selectedImage: "category_selected")
 
-        let mine = MIneViewController()
+        let mine = MineViewController()
         setViewController(viewController: mine, title: "我的", image: "mine_normal", selectedImage: "mine_selected")
 
         tab.viewControllers = [new,category,mine];

@@ -22,8 +22,8 @@
 		53C6CC61221E2982005A54DA /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53C6CC5F221E2982005A54DA /* CategoryViewController.xib */; };
 		53C6CC64221E2999005A54DA /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6CC62221E2999005A54DA /* NewViewController.swift */; };
 		53C6CC65221E2999005A54DA /* NewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53C6CC63221E2999005A54DA /* NewViewController.xib */; };
-		53C6CC68221E29CE005A54DA /* MIneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6CC66221E29CE005A54DA /* MIneViewController.swift */; };
-		53C6CC69221E29CE005A54DA /* MIneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53C6CC67221E29CE005A54DA /* MIneViewController.xib */; };
+		53C6CC68221E29CE005A54DA /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6CC66221E29CE005A54DA /* MineViewController.swift */; };
+		53C6CC69221E29CE005A54DA /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53C6CC67221E29CE005A54DA /* MineViewController.xib */; };
 		53EB883822236C7E0088777B /* NewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EB883622236C7E0088777B /* NewTableViewCell.swift */; };
 		53EB883922236C7E0088777B /* NewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53EB883722236C7E0088777B /* NewTableViewCell.xib */; };
 		53F07A8622275DF300ED848D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F07A8422275DF300ED848D /* WebViewController.swift */; };
@@ -72,8 +72,8 @@
 		53C6CC5F221E2982005A54DA /* CategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
 		53C6CC62221E2999005A54DA /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		53C6CC63221E2999005A54DA /* NewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewViewController.xib; sourceTree = "<group>"; };
-		53C6CC66221E29CE005A54DA /* MIneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIneViewController.swift; sourceTree = "<group>"; };
-		53C6CC67221E29CE005A54DA /* MIneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIneViewController.xib; sourceTree = "<group>"; };
+		53C6CC66221E29CE005A54DA /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		53C6CC67221E29CE005A54DA /* MineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
 		53EB883622236C7E0088777B /* NewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableViewCell.swift; sourceTree = "<group>"; };
 		53EB883722236C7E0088777B /* NewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTableViewCell.xib; sourceTree = "<group>"; };
 		53F07A8422275DF300ED848D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -204,8 +204,8 @@
 		53C6CC5B221E2911005A54DA /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				53C6CC66221E29CE005A54DA /* MIneViewController.swift */,
-				53C6CC67221E29CE005A54DA /* MIneViewController.xib */,
+				53C6CC66221E29CE005A54DA /* MineViewController.swift */,
+				53C6CC67221E29CE005A54DA /* MineViewController.xib */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -352,7 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53F07A8C2228B6DD00ED848D /* DatePickerViewController.xib in Resources */,
-				53C6CC69221E29CE005A54DA /* MIneViewController.xib in Resources */,
+				53C6CC69221E29CE005A54DA /* MineViewController.xib in Resources */,
 				53C6CC36221E2158005A54DA /* LaunchScreen.storyboard in Resources */,
 				53F07A8722275DF300ED848D /* WebViewController.xib in Resources */,
 				53EB883922236C7E0088777B /* NewTableViewCell.xib in Resources */,
@@ -448,7 +448,7 @@
 				5345777F222F46910055F317 /* CategoryPageController.swift in Sources */,
 				53F07A8622275DF300ED848D /* WebViewController.swift in Sources */,
 				53C6CC64221E2999005A54DA /* NewViewController.swift in Sources */,
-				53C6CC68221E29CE005A54DA /* MIneViewController.swift in Sources */,
+				53C6CC68221E29CE005A54DA /* MineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
