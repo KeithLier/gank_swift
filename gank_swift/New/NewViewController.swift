@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import SDWebImage
+import PKHUD
+import MJRefresh
 
 class NewViewController: UIViewController {
     
@@ -25,7 +27,9 @@ class NewViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "NewTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "NewTableViewCell")
         self.tableView.register(UINib(nibName: "ImageTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "ImageTableViewCell")
-
+        let mjHeader = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
+        self.tableView.mj_header = mjHeader
+        
         loadNewData()
     }
 
@@ -38,9 +42,10 @@ class NewViewController: UIViewController {
 
     }
     
-    func loadNewData() {
+    @objc func loadNewData() {
+        PKHUD.sharedHUD.contentView = PKHUDSystemActivityIndicatorView()
+        PKHUD.sharedHUD.show(onView: self.view)
         let url = "https://gank.io/api/today"
-        
         Alamofire.request(url).responseJSON { response in
             if let JSON = response.result.value {
                 if let dict = JSON as? [String: AnyObject] {
@@ -48,6 +53,8 @@ class NewViewController: UIViewController {
                     self.results = dict["results"] as! Dictionary<String, AnyObject>
                 }
             }
+            self.tableView.mj_header.endRefreshing()
+            PKHUD.sharedHUD.hide()
             self.tableView.reloadData()
         }
     }
