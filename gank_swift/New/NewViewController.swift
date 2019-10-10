@@ -61,6 +61,9 @@ class NewViewController: UIViewController {
     
     @objc func chooseDate() {
         let date: DatePickerViewController = DatePickerViewController()
+        date.chooseDate = { (date) -> () in
+            
+        }
         self.navigationController?.present(date, animated: true, completion: nil)
     }
 }

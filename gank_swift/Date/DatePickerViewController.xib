@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,14 +19,21 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hT3-CO-XA1">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPB-FF-0nw">
+                    <rect key="frame" x="0.0" y="407" width="375" height="260"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="260" id="Da1-Pj-7Vo"/>
+                    </constraints>
+                </view>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="hT3-CO-XA1">
                     <rect key="frame" x="0.0" y="451" width="375" height="216"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="216" id="QhX-01-aAN"/>
                     </constraints>
-                    <date key="date" timeIntervalSinceReferenceDate="573093620.51637805">
-                        <!--2019-03-01 00:40:20 +0000-->
+                    <date key="minimumDate" timeIntervalSinceReferenceDate="-347115600">
+                        <!--1990-01-01 11:00:00 +0000-->
                     </date>
                     <locale key="locale" localeIdentifier="zh_CN"/>
                 </datePicker>
@@ -76,8 +81,11 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="SPB-FF-0nw" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="2Ak-7z-Ian"/>
                 <constraint firstItem="Vzx-Um-cGm" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="FO2-JQ-4IU"/>
+                <constraint firstItem="SPB-FF-0nw" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="FUH-EV-m14"/>
                 <constraint firstItem="hT3-CO-XA1" firstAttribute="top" secondItem="Vzx-Um-cGm" secondAttribute="bottom" id="WjU-9B-jPv"/>
+                <constraint firstItem="SPB-FF-0nw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cKg-2G-KPr"/>
                 <constraint firstItem="hT3-CO-XA1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nD5-Dc-QyN"/>
                 <constraint firstItem="hT3-CO-XA1" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="oeS-ik-MVQ"/>
                 <constraint firstItem="Vzx-Um-cGm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="u6o-AR-5iJ"/>
