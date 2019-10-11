@@ -16,6 +16,7 @@ class NewViewController: UIViewController {
     
     var category:Array<String> = []
     var results:Dictionary<String, AnyObject> = [:]
+    var dateString: String = ""
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,6 +31,9 @@ class NewViewController: UIViewController {
         let mjHeader = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
         self.tableView.mj_header = mjHeader
         
+        self.dateString = self.getToday()
+        self.reloadDateString()
+
         loadNewData()
     }
 
@@ -38,14 +42,19 @@ class NewViewController: UIViewController {
 
         self.tabBarController?.navigationItem.title = "每日干货"
         
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.chooseDate))
-
+    }
+    
+    func reloadDateString() {
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: self.dateString, style: .plain, target: self, action: #selector(self.chooseDate))
     }
     
     @objc func loadNewData() {
         PKHUD.sharedHUD.contentView = PKHUDSystemActivityIndicatorView()
         PKHUD.sharedHUD.show(onView: self.view)
-        let url = "https://gank.io/api/today"
+        var url = "http://gank.io/api/day/" + self.dateString
+        if self.dateString == self.getToday() {
+            url = "https://gank.io/api/today"
+        }
         Alamofire.request(url).responseJSON { response in
             if let JSON = response.result.value {
                 if let dict = JSON as? [String: AnyObject] {
@@ -62,9 +71,19 @@ class NewViewController: UIViewController {
     @objc func chooseDate() {
         let date: DatePickerViewController = DatePickerViewController()
         date.chooseDate = { (date) -> () in
-            
+            self.dateString = date
+            self.reloadDateString()
+            self.loadNewData()
         }
         self.navigationController?.present(date, animated: true, completion: nil)
+    }
+    
+    func getToday() -> String {
+        let date = Date()
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        let today = formatter.string(from: date)
+        return today
     }
 }
 

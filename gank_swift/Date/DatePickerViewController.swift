@@ -28,7 +28,7 @@ class DatePickerViewController: UIViewController {
 
     @IBAction func confirm(_ sender: Any) {
         let formatter: DateFormatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
+        formatter.dateFormat = "yyyy/MM/dd"
         let date: String = formatter.string(from: datePicker.date)
         chooseDate!(date)
         
