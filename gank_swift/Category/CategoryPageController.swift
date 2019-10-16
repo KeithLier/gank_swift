@@ -16,7 +16,8 @@ class CategoryPageController: UIViewController {
     var results:NSMutableArray = []
     var pageNumber: Int = 1
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var searchBar: UISearchBar!
+
     let header = MJRefreshNormalHeader()
     let footer = MJRefreshAutoNormalFooter()
     
@@ -32,6 +33,8 @@ class CategoryPageController: UIViewController {
         self.tableView.mj_header = header
         self.tableView.mj_footer = footer
         header.beginRefreshing()
+        
+        self.searchBar.delegate = self
     }
 
     @objc func refreshData() {
@@ -45,8 +48,17 @@ class CategoryPageController: UIViewController {
     }
     
     func loadData () {
-        var url = "http://gank.io/api/data/";
-        url = url + self.category + "/20/" + String(pageNumber);
+        let count = "20"
+        var url = "http://gank.io/api/data/" + self.category + "/" + count + "/" + String(pageNumber)
+        let searchString:String = self.searchBar.text!
+        if  searchString != "" {
+            let base = "http://gank.io/api/search"
+            let query = "/query/" + searchString
+            let category = "/category/" + self.category
+            let count = "/count/" + count;
+            let page = "/page/" + String(pageNumber)
+            url = base + query + category + count + page
+        }
         url = url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         Alamofire.request(url).responseJSON { response in
             self.tableView.mj_header.endRefreshing()
@@ -72,7 +84,6 @@ class CategoryPageController: UIViewController {
 }
 
 extension CategoryPageController: UITableViewDataSource, UITableViewDelegate {
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if self.category == "福利" {
@@ -122,6 +133,8 @@ extension CategoryPageController: UITableViewDataSource, UITableViewDelegate {
                     cell!.imgView.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "no_image_default"))
                 }
             }
+        } else {
+            cell!.imgView.image = UIImage(named: "no_image_default")
         }
         return cell!
     }
@@ -140,5 +153,15 @@ extension CategoryPageController: UITableViewDataSource, UITableViewDelegate {
             self.navigationController?.pushViewController(webVC, animated: true)
         }
         
+    }
+}
+
+extension CategoryPageController: UISearchBarDelegate {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.loadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
     }
 }

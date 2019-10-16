@@ -32,7 +32,6 @@ class NewViewController: UIViewController {
         self.tableView.mj_header = mjHeader
         
         self.dateString = self.getToday()
-        self.reloadDateString()
 
         loadNewData()
     }
@@ -41,7 +40,7 @@ class NewViewController: UIViewController {
         super .viewWillAppear(animated)
 
         self.tabBarController?.navigationItem.title = "每日干货"
-        
+        self.reloadDateString()
     }
     
     func reloadDateString() {
