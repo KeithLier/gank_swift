@@ -52,7 +52,7 @@ class NewViewController: UIViewController {
         PKHUD.sharedHUD.show(onView: self.view)
         var url = "http://gank.io/api/day/" + self.dateString
         if self.dateString == self.getToday() {
-            url = "https://gank.io/api/today"
+            url = "http://gank.io/api/today"
         }
         Alamofire.request(url).responseJSON { response in
             if let JSON = response.result.value {
@@ -145,7 +145,7 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
             cell!.autherLabel.text = who
         }
         if let date = dict["publishedAt"] as? String {
-            cell!.dateLabel.text = date
+            cell!.dateLabel.text = self.dateFormatter(date: date)
         }
         if dict.keys.contains("images") {
             if let images:Array<String> = dict["images"] as? [String] {
@@ -174,6 +174,17 @@ extension NewViewController: UITableViewDataSource, UITableViewDelegate {
             webVC.title = dict["who"] as? String
             self.navigationController?.pushViewController(webVC, animated: true)
         }
-        
+    }
+    
+    func dateFormatter(date: String) -> String {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        formatter.timeZone = NSTimeZone.local
+        let d: Date? = formatter.date(from: date)
+        if d == nil {
+            return date
+        }
+        formatter.dateFormat = "yyyy/MM/dd"
+        return formatter.string(from: d!)
     }
 }
