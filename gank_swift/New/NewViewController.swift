@@ -44,7 +44,7 @@ class NewViewController: UIViewController {
     }
     
     func reloadDateString() {
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: self.dateString, style: .plain, target: self, action: #selector(self.chooseDate))
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: self.dateString, style: .plain, target: self, action: #selector(self.selectHistory))
     }
     
     @objc func loadNewData() {
@@ -75,6 +75,16 @@ class NewViewController: UIViewController {
             self.loadNewData()
         }
         self.navigationController?.present(date, animated: true, completion: nil)
+    }
+    
+    @objc func selectHistory() {
+        let history: HistoryViewController = HistoryViewController()
+        history.selectedDate = { (date) -> () in
+            self.dateString = date
+            self.reloadDateString()
+            self.loadNewData()
+        }
+        self.navigationController?.pushViewController(history, animated: true)
     }
     
     func getToday() -> String {
