@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FreeViewController" customModule="gank_swift" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="2c6-PW-Qte" id="nZf-gQ-4hg"/>
+                <outlet property="scrollView" destination="WBj-gs-u0Y" id="ghj-7T-4p4"/>
+                <outlet property="topMenuScrollView" destination="N4Y-yi-EBk" id="Y1k-bk-N3C"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ost-5J-APF">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" id="N4Y-yi-EBk" customClass="TopMenuScrollView" customModule="gank_swift" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <viewLayoutGuide key="safeArea" id="agT-UQ-NLK"/>
+                        </view>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="2c6-PW-Qte">
+                            <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="mce-Jv-rtA"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Ip-he-kBZ">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="2c6-PW-Qte" firstAttribute="leading" secondItem="ost-5J-APF" secondAttribute="leading" id="C8V-NO-lbW"/>
+                        <constraint firstAttribute="bottom" secondItem="2c6-PW-Qte" secondAttribute="bottom" id="HZo-dG-GSr"/>
+                        <constraint firstAttribute="trailing" secondItem="2c6-PW-Qte" secondAttribute="trailing" id="VpA-GZ-i0x"/>
+                        <constraint firstAttribute="height" constant="88" id="fcU-wW-tiL"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WBj-gs-u0Y">
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <viewLayoutGuide key="contentLayoutGuide" id="ibb-eH-Wg1"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="rhH-CE-Fwr"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ost-5J-APF" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="2X1-ee-AWZ"/>
+                <constraint firstItem="ost-5J-APF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6nr-pS-S9L"/>
+                <constraint firstItem="ost-5J-APF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eqM-sR-W13"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
+        </view>
+    </objects>
+</document>

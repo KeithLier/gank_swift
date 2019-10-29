@@ -43,6 +43,7 @@ class TopMenuScrollView: UIView {
                 scrollView.addSubview(sliderView)
                 scrollView.sendSubviewToBack(sliderView)
             }
+            self.layoutSubviews()
         }
     }
     

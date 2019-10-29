@@ -26,11 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setViewController(viewController: new, title: "最新", image: "new_normal", selectedImage: "new_selected")
         let category = CategoryViewController()
         setViewController(viewController: category, title: "分类", image: "category_normal", selectedImage: "category_selected")
-
+        let free = FreeViewController()
+        setViewController(viewController: free, title: "闲读", image: "free_normal", selectedImage: "free_selected")
         let mine = MineViewController()
         setViewController(viewController: mine, title: "我的", image: "mine_normal", selectedImage: "mine_selected")
 
-        tab.viewControllers = [new,category,mine];
+        tab.viewControllers = [new, category, free, mine];
         let nav = UINavigationController(rootViewController: tab)
         self.window?.rootViewController = nav
 

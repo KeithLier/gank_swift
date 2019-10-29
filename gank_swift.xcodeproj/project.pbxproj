@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5305CA3823612A7F0082F9D8 /* FreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305CA3623612A7F0082F9D8 /* FreeViewController.swift */; };
+		5305CA3923612A7F0082F9D8 /* FreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5305CA3723612A7F0082F9D8 /* FreeViewController.xib */; };
 		53152084222CA838003EE954 /* TopMenuScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53152083222CA838003EE954 /* TopMenuScrollView.swift */; };
+		532627C12361309900CD7421 /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532627C02361309900CD7421 /* common.swift */; };
+		532627C42362800700CD7421 /* FreeMenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532627C22362800700CD7421 /* FreeMenuViewCell.swift */; };
+		532627C52362800700CD7421 /* FreeMenuViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 532627C32362800700CD7421 /* FreeMenuViewCell.xib */; };
 		5345777F222F46910055F317 /* CategoryPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345777D222F46910055F317 /* CategoryPageController.swift */; };
 		53457780222F46910055F317 /* CategoryPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5345777E222F46910055F317 /* CategoryPageController.xib */; };
 		534D40D0223881B700ED9552 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534D40CE223881B700ED9552 /* ImageTableViewCell.swift */; };
@@ -53,7 +58,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5305CA3623612A7F0082F9D8 /* FreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeViewController.swift; sourceTree = "<group>"; };
+		5305CA3723612A7F0082F9D8 /* FreeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FreeViewController.xib; sourceTree = "<group>"; };
 		53152083222CA838003EE954 /* TopMenuScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenuScrollView.swift; sourceTree = "<group>"; };
+		532627C02361309900CD7421 /* common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
+		532627C22362800700CD7421 /* FreeMenuViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeMenuViewCell.swift; sourceTree = "<group>"; };
+		532627C32362800700CD7421 /* FreeMenuViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FreeMenuViewCell.xib; sourceTree = "<group>"; };
 		5345777D222F46910055F317 /* CategoryPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPageController.swift; sourceTree = "<group>"; };
 		5345777E222F46910055F317 /* CategoryPageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryPageController.xib; sourceTree = "<group>"; };
 		534D40CE223881B700ED9552 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,13 +125,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5305CA3523612A580082F9D8 /* Free */ = {
+			isa = PBXGroup;
+			children = (
+				5305CA3623612A7F0082F9D8 /* FreeViewController.swift */,
+				5305CA3723612A7F0082F9D8 /* FreeViewController.xib */,
+			);
+			path = Free;
+			sourceTree = "<group>";
+		};
+		532627BF23612F3D00CD7421 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				532627C02361309900CD7421 /* common.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		534D40CD2238818200ED9552 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				53152083222CA838003EE954 /* TopMenuScrollView.swift */,
 				53EB883622236C7E0088777B /* NewTableViewCell.swift */,
 				53EB883722236C7E0088777B /* NewTableViewCell.xib */,
 				534D40CE223881B700ED9552 /* ImageTableViewCell.swift */,
 				534D40CF223881B700ED9552 /* ImageTableViewCell.xib */,
+				532627C22362800700CD7421 /* FreeMenuViewCell.swift */,
+				532627C32362800700CD7421 /* FreeMenuViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,11 +181,13 @@
 		53C6CC2A221E2156005A54DA /* gank_swift */ = {
 			isa = PBXGroup;
 			children = (
+				532627BF23612F3D00CD7421 /* Common */,
 				53C6CC2B221E2156005A54DA /* AppDelegate.swift */,
 				53C6CC2D221E2156005A54DA /* ViewController.swift */,
 				534D40CD2238818200ED9552 /* View */,
 				53F07A882228B6C000ED848D /* Date */,
 				53C6CC59221E28FB005A54DA /* New */,
+				5305CA3523612A580082F9D8 /* Free */,
 				53C6CC5A221E2903005A54DA /* Category */,
 				53C6CC5B221E2911005A54DA /* Mine */,
 				53F07A8322275DCA00ED848D /* Web */,
@@ -202,7 +234,6 @@
 				53C6CC5F221E2982005A54DA /* CategoryViewController.xib */,
 				5345777D222F46910055F317 /* CategoryPageController.swift */,
 				5345777E222F46910055F317 /* CategoryPageController.xib */,
-				53152083222CA838003EE954 /* TopMenuScrollView.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -360,6 +391,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				532627C52362800700CD7421 /* FreeMenuViewCell.xib in Resources */,
+				5305CA3923612A7F0082F9D8 /* FreeViewController.xib in Resources */,
 				53F07A8C2228B6DD00ED848D /* DatePickerViewController.xib in Resources */,
 				53C6CC69221E29CE005A54DA /* MineViewController.xib in Resources */,
 				53C6CC36221E2158005A54DA /* LaunchScreen.storyboard in Resources */,
@@ -437,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				532627C12361309900CD7421 /* common.swift in Sources */,
 				53152084222CA838003EE954 /* TopMenuScrollView.swift in Sources */,
 				53EB883822236C7E0088777B /* NewTableViewCell.swift in Sources */,
 				53C6CC60221E2982005A54DA /* CategoryViewController.swift in Sources */,
@@ -444,11 +478,13 @@
 				534D40D0223881B700ED9552 /* ImageTableViewCell.swift in Sources */,
 				53C6CC2E221E2156005A54DA /* ViewController.swift in Sources */,
 				53C6CC2C221E2156005A54DA /* AppDelegate.swift in Sources */,
+				5305CA3823612A7F0082F9D8 /* FreeViewController.swift in Sources */,
 				53F07A8B2228B6DD00ED848D /* DatePickerViewController.swift in Sources */,
 				5345777F222F46910055F317 /* CategoryPageController.swift in Sources */,
 				53F07A8622275DF300ED848D /* WebViewController.swift in Sources */,
 				53C6CC64221E2999005A54DA /* NewViewController.swift in Sources */,
 				53C6CC68221E29CE005A54DA /* MineViewController.swift in Sources */,
+				532627C42362800700CD7421 /* FreeMenuViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
