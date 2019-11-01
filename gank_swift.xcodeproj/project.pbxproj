@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5305CA3823612A7F0082F9D8 /* FreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305CA3623612A7F0082F9D8 /* FreeViewController.swift */; };
 		5305CA3923612A7F0082F9D8 /* FreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5305CA3723612A7F0082F9D8 /* FreeViewController.xib */; };
+		530AEF272367C484003EFB4E /* FreePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530AEF252367C484003EFB4E /* FreePageViewController.swift */; };
+		530AEF282367C484003EFB4E /* FreePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 530AEF262367C484003EFB4E /* FreePageViewController.xib */; };
 		53152084222CA838003EE954 /* TopMenuScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53152083222CA838003EE954 /* TopMenuScrollView.swift */; };
 		532627C12361309900CD7421 /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532627C02361309900CD7421 /* common.swift */; };
 		532627C42362800700CD7421 /* FreeMenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532627C22362800700CD7421 /* FreeMenuViewCell.swift */; };
@@ -31,6 +33,8 @@
 		53C6CC65221E2999005A54DA /* NewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53C6CC63221E2999005A54DA /* NewViewController.xib */; };
 		53C6CC68221E29CE005A54DA /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6CC66221E29CE005A54DA /* MineViewController.swift */; };
 		53C6CC69221E29CE005A54DA /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53C6CC67221E29CE005A54DA /* MineViewController.xib */; };
+		53D5ED9D236BBE0500427FE8 /* FreePageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5ED9B236BBE0500427FE8 /* FreePageListViewController.swift */; };
+		53D5ED9E236BBE0500427FE8 /* FreePageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D5ED9C236BBE0500427FE8 /* FreePageListViewController.xib */; };
 		53EB883822236C7E0088777B /* NewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EB883622236C7E0088777B /* NewTableViewCell.swift */; };
 		53EB883922236C7E0088777B /* NewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53EB883722236C7E0088777B /* NewTableViewCell.xib */; };
 		53F07A8622275DF300ED848D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F07A8422275DF300ED848D /* WebViewController.swift */; };
@@ -60,6 +64,8 @@
 /* Begin PBXFileReference section */
 		5305CA3623612A7F0082F9D8 /* FreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeViewController.swift; sourceTree = "<group>"; };
 		5305CA3723612A7F0082F9D8 /* FreeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FreeViewController.xib; sourceTree = "<group>"; };
+		530AEF252367C484003EFB4E /* FreePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreePageViewController.swift; sourceTree = "<group>"; };
+		530AEF262367C484003EFB4E /* FreePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FreePageViewController.xib; sourceTree = "<group>"; };
 		53152083222CA838003EE954 /* TopMenuScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenuScrollView.swift; sourceTree = "<group>"; };
 		532627C02361309900CD7421 /* common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
 		532627C22362800700CD7421 /* FreeMenuViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeMenuViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +94,8 @@
 		53C6CC63221E2999005A54DA /* NewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewViewController.xib; sourceTree = "<group>"; };
 		53C6CC66221E29CE005A54DA /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		53C6CC67221E29CE005A54DA /* MineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
+		53D5ED9B236BBE0500427FE8 /* FreePageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreePageListViewController.swift; sourceTree = "<group>"; };
+		53D5ED9C236BBE0500427FE8 /* FreePageListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FreePageListViewController.xib; sourceTree = "<group>"; };
 		53EB883622236C7E0088777B /* NewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableViewCell.swift; sourceTree = "<group>"; };
 		53EB883722236C7E0088777B /* NewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTableViewCell.xib; sourceTree = "<group>"; };
 		53F07A8422275DF300ED848D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +138,10 @@
 			children = (
 				5305CA3623612A7F0082F9D8 /* FreeViewController.swift */,
 				5305CA3723612A7F0082F9D8 /* FreeViewController.xib */,
+				530AEF252367C484003EFB4E /* FreePageViewController.swift */,
+				530AEF262367C484003EFB4E /* FreePageViewController.xib */,
+				53D5ED9B236BBE0500427FE8 /* FreePageListViewController.swift */,
+				53D5ED9C236BBE0500427FE8 /* FreePageListViewController.xib */,
 			);
 			path = Free;
 			sourceTree = "<group>";
@@ -392,8 +404,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				532627C52362800700CD7421 /* FreeMenuViewCell.xib in Resources */,
+				530AEF282367C484003EFB4E /* FreePageViewController.xib in Resources */,
 				5305CA3923612A7F0082F9D8 /* FreeViewController.xib in Resources */,
 				53F07A8C2228B6DD00ED848D /* DatePickerViewController.xib in Resources */,
+				53D5ED9E236BBE0500427FE8 /* FreePageListViewController.xib in Resources */,
 				53C6CC69221E29CE005A54DA /* MineViewController.xib in Resources */,
 				53C6CC36221E2158005A54DA /* LaunchScreen.storyboard in Resources */,
 				53F07A8722275DF300ED848D /* WebViewController.xib in Resources */,
@@ -475,6 +489,7 @@
 				53EB883822236C7E0088777B /* NewTableViewCell.swift in Sources */,
 				53C6CC60221E2982005A54DA /* CategoryViewController.swift in Sources */,
 				536AAA81235E7F41000513DD /* HistoryViewController.swift in Sources */,
+				530AEF272367C484003EFB4E /* FreePageViewController.swift in Sources */,
 				534D40D0223881B700ED9552 /* ImageTableViewCell.swift in Sources */,
 				53C6CC2E221E2156005A54DA /* ViewController.swift in Sources */,
 				53C6CC2C221E2156005A54DA /* AppDelegate.swift in Sources */,
@@ -484,6 +499,7 @@
 				53F07A8622275DF300ED848D /* WebViewController.swift in Sources */,
 				53C6CC64221E2999005A54DA /* NewViewController.swift in Sources */,
 				53C6CC68221E29CE005A54DA /* MineViewController.swift in Sources */,
+				53D5ED9D236BBE0500427FE8 /* FreePageListViewController.swift in Sources */,
 				532627C42362800700CD7421 /* FreeMenuViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
