@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class MineViewController: UIViewController {
 
@@ -37,6 +38,11 @@ class MineViewController: UIViewController {
     }
 
     @objc func setting() {
+        let url = "https://gank.io/api/add2gank"
+        let params: Dictionary = ["url":"www.baidu.com","desc":"测试干货的提交接口","who":"test","type":"iOS","debug":true] as Dictionary
+        Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+            
+        }
         
     }
 
